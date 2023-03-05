@@ -1,11 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contacts/contacts-slice';
 
-import {
-  fetchAllContacts,
-  fetchAddContact,
-  fetchDeleteContact,
-} from 'redux/contacts/contacts-operations';
+import { fetchDeleteContact } from 'redux/contacts/contacts-operations';
 
 import PropTypes from 'prop-types';
 

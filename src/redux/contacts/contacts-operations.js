@@ -40,12 +40,12 @@ const isDublicate = (contacts, { name }) => {
 export const fetchAddContact = data => {
   const func = async (dispatch, getState) => {
     try {
-      const { contacts } = getState;
-      if (isDublicate(contacts.items, data)) {
-        Notiflix.Notify.failure('name already exists');
+      const { contacts } = getState();
+      if (isDublicate(contacts, data)) {
+        Notiflix.Notify.failure(`Contact ${data.name} already exists`);
         return false;
       }
-      console.log(contacts);
+
       dispatch(fetchAddContactLoading());
       const result = await api.addContact(data);
       dispatch(fetchAddContactSuccess(result));

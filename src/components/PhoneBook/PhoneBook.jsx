@@ -5,11 +5,7 @@ import ContactsList from '../ContactsList/ContactsList';
 import ContactsFilter from '../ContactsFilter/ContactsFilter';
 import ContactsForm from '../ContactsForm/ContactsForm';
 
-import {
-  fetchAllContacts,
-  fetchAddContact,
-  fetchDeleteContact,
-} from 'redux/contacts/contacts-operations';
+import { fetchAllContacts } from 'redux/contacts/contacts-operations';
 import { setFilter } from '../../redux/filter/filter-slice';
 
 import { getFilter, getFilteredContact } from 'redux/filter/filter-selectors';
@@ -23,14 +19,11 @@ const PhoneBook = () => {
     dispatch(fetchAllContacts());
   }, [dispatch]);
 
-  const allContacts = useSelector(fetchAllContacts);
-  // const contacts = allContacts.items;
   const contacts = useSelector(getFilteredContact);
 
   const filter = useSelector(getFilter);
 
   const isContacts = Boolean(contacts.items.length);
-  // const isContacts = true;
 
   const handleFilter = ({ target }) => dispatch(setFilter(target.value));
 
