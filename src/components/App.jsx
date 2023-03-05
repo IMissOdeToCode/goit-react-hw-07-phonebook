@@ -1,16 +1,13 @@
+import PhoneBook from './PhoneBook/PhoneBook';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <PhoneBook />
+    </>
   );
 };
+
+//bundle.js:2728 The object notation for `createReducer` is deprecated,
+// and will be removed in RTK 2.0.
+// Please use the 'builder callback' notation instead: https://redux-toolkit.js.org/api/createReducer
