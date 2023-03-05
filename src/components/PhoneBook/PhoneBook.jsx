@@ -20,12 +20,13 @@ const PhoneBook = () => {
   }, [dispatch]);
 
   const contacts = useSelector(getFilteredContact);
-
   const filter = useSelector(getFilter);
 
-  const isContacts = Boolean(contacts.items.length);
+  const isContacts = Boolean(contacts.length);
 
-  const handleFilter = ({ target }) => dispatch(setFilter(target.value));
+  const handleFilter = ({ target }) => {
+    return dispatch(setFilter(target.value));
+  };
 
   return (
     <div className={css.wrapper}>
@@ -37,7 +38,7 @@ const PhoneBook = () => {
       <div className={css.block}>
         <h2 className={css.header}>Contacts</h2>
         <ContactsFilter value={filter} handleChange={handleFilter} />
-        {isContacts && <ContactsList contacts={contacts.items} />}
+        {isContacts && <ContactsList contacts={contacts} />}
         {!isContacts && <p className={css.header}>No contacts in list</p>}
       </div>
     </div>
