@@ -3,6 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllContacts } from 'redux/contacts/contacts-selectors';
 import { addContact } from 'redux/contacts/contacts-slice';
 
+import {
+  fetchAllContacts,
+  fetchAddContact,
+  fetchDeleteContact,
+} from 'redux/contacts/contacts-operations';
+
 import Notiflix from 'notiflix';
 
 import initialState from '../utils/initialState';
@@ -51,8 +57,7 @@ const ContactsForm = () => {
       return false;
     }
 
-    const action = addContact({ name, number });
-    dispatch(action);
+    dispatch(fetchAddContact({ name, number }));
 
     return true;
   };
